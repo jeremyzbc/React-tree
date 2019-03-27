@@ -4,7 +4,10 @@ A simple React Tree Component with minimal styling
 # Example
 npm install && npm start
 
-```const source = [
+![Example](example.png)
+
+```
+const source = [
   {
     id: 1,
     label: 'Australia',
@@ -70,3 +73,4 @@ npm install && npm start
   }
 ];
 ```
+
