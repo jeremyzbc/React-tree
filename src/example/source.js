@@ -3,30 +3,24 @@ const source = [
     id: 1,
     label: 'Australia',
     isExpand: true,
-    isSelect: false,
     children: [
       {
         id: 11,
         label: 'NSW',
-        isExpand: false,
-        isSelect: false,
         children: [
           {
             id: 111,
-            label: 'Sydney',
-            isSelect: false
+            label: 'Sydney'
           },
           {
             id: 112,
-            label: 'Central Coast',
-            isSelect: false
+            label: 'Central Coast'
           }
         ]
       },
       {
         id: 12,
         label: 'QLD',
-        isExpand: false,
         children: [
           {
             id: 121,
@@ -41,7 +35,6 @@ const source = [
       {
         id: 13,
         label: 'Victoria',
-        isExpand: false,
         children: [
           {
             id: 131,
@@ -52,7 +45,6 @@ const source = [
       {
         id: 14,
         label: 'Western Australia',
-        isExpand: false,
         children: [
           {
             id: 141,
