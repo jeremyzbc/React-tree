@@ -6,14 +6,17 @@ export default class Tree extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tree: props.tree
+      tree: props.source
     };
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    return {
-      tree: nextProps.source
-    };
+  static getDerivedStateFromProps(nextProps, prevStates) {
+    if(JSON.stringify(nextProps.source) !== JSON.stringify(prevStates.tree)){
+      return {
+        tree: nextProps.source
+      };
+    }
+    return null;
   }
 
   updateTreeByBranchId = (tree, id, callback) => {
@@ -99,28 +102,31 @@ export default class Tree extends Component {
   };
 
   makeTree = tree => (
-    <div style={{ marginLeft: '1rem' }}>
+    <div style={{ padding: '.6rem 1rem' }}>
       {tree.map(branch => (
-        <div key={branch.id}>
-          {this.props.selectable ? (
-            <input
-              type="checkbox"
-              checked={branch.isSelect}
-              onChange={() => this.selectToggle(branch.id)}
-            />
-          ) : null}
-          <span>{branch.label}</span>
-          {branch.children && branch.children.length > 0 ? (
-            branch.isExpand ? (
-              <>
+        <React.Fragment key={branch.id}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            height: '1.5rem'
+          }}>
+            {this.props.selectable ? (
+              <input
+                type="checkbox"
+                checked={branch.isSelect}
+                onChange={() => this.selectToggle(branch.id)}
+              />
+            ) : null}
+            <span>{branch.label}</span>
+            {branch.children && branch.children.length > 0 ? (
+              branch.isExpand ?
                 <ExpandLess onClick={() => this.expandToggle(branch.id)} />
-                {this.makeTree(branch.children)}
-              </>
-            ) : (
-              <ExpandMore onClick={() => this.expandToggle(branch.id)} />
-            )
-          ) : null}
-        </div>
+                : 
+                <ExpandMore onClick={() => this.expandToggle(branch.id)} />
+            ) : null}
+          </div>
+          {branch.children && branch.isExpand ? this.makeTree(branch.children): null}
+        </React.Fragment>
       ))}
     </div>
   );
