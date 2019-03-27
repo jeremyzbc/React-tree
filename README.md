@@ -6,7 +6,8 @@ npm install && npm start
 
 ![Example](example.png)
 
-```const source = [
+```
+const source = [
   {
     id: 1,
     label: 'Australia',
