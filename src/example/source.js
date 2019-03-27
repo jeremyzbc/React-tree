@@ -70,6 +70,6 @@ const source = [
     id: 2,
     label: 'New Zealand'
   }
-]
+];
 
 export default source;
