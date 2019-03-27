@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["prettier"],
+  "extends": ["prettier/react", "plugin:prettier/recommended"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-shadow": "off",
+    "no-underscore-dangle": "off",
+    "react/prop-types": "off",
+    "no-param-reassign": "off",
+    "global-require": "off",
+    "import/no-unresolved": "off",
+    "react/no-did-mount-set-state": "off",
+    "no-script-url": "off",
+    "jsx-a11y/html-has-lang": "off",
+    "jsx-a11y/label-has-for": "off",
+    "react/react-in-jsx-scope": "off",
+    "linebreak-style": ["error", "unix"],
+    "import/prefer-default-export": "off",
+    "import/no-named-as-default": "off"
+  }
+}
