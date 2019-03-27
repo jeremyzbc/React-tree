@@ -70,3 +70,4 @@ npm install && npm start
   }
 ];
 ```
+![Example](example.png)
