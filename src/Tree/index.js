@@ -11,7 +11,7 @@ export default class Tree extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevStates) {
-    if(JSON.stringify(nextProps.source) !== JSON.stringify(prevStates.tree)){
+    if (JSON.stringify(nextProps.source) !== JSON.stringify(prevStates.tree)) {
       return {
         tree: nextProps.source
       };
@@ -105,11 +105,13 @@ export default class Tree extends Component {
     <div style={{ padding: '.6rem 1rem' }}>
       {tree.map(branch => (
         <React.Fragment key={branch.id}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            height: '1.5rem'
-          }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              height: '1.5rem'
+            }}
+          >
             {this.props.selectable ? (
               <input
                 type="checkbox"
@@ -119,13 +121,14 @@ export default class Tree extends Component {
             ) : null}
             <span>{branch.label}</span>
             {branch.children && branch.children.length > 0 ? (
-              branch.isExpand ?
-                <ExpandLess onClick={() => this.expandToggle(branch.id)} />
-                : 
-                <ExpandMore onClick={() => this.expandToggle(branch.id)} />
+              <i onClick={() => this.expandToggle(branch.id)}>
+                {branch.isExpand ? <ExpandLess /> : <ExpandMore />}
+              </i>
             ) : null}
           </div>
-          {branch.children && branch.isExpand ? this.makeTree(branch.children): null}
+          {branch.children && branch.isExpand
+            ? this.makeTree(branch.children)
+            : null}
         </React.Fragment>
       ))}
     </div>
