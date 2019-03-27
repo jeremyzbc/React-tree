@@ -4,6 +4,8 @@ A simple React Tree Component with minimal styling
 # Example
 npm install && npm start
 
+![Example](example.png)
+
 ```const source = [
   {
     id: 1,
@@ -70,4 +72,4 @@ npm install && npm start
   }
 ];
 ```
-![Example](example.png)
+
