@@ -7,7 +7,7 @@ import Tree from '../Tree';
 import source from './source';
 
 const App = () => (
-  <Tree source={source} selectable onTreeChange={tree => console.log(tree)} />
+  <Tree source={source} onTreeChange={tree => console.log(tree)} />
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));

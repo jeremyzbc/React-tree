@@ -42,7 +42,10 @@ export default class Tree extends Component {
       return branch;
     };
     const tree = this.updateTreeByBranchId(this.state.tree, id, callback);
-    this.setState({ tree });
+    this.setState({ tree }, () => {
+      if (typeof this.props.onTreeExpand === 'function')
+        this.props.onTreeExpand(tree);
+    });
   };
 
   selectToggle = id => {
@@ -127,6 +130,13 @@ export default class Tree extends Component {
   }
 }
 
+Tree.defaultProps = {
+  selectable: true
+};
+
 Tree.propTypes = {
-  source: PropTypes.arrayOf(PropTypes.object).isRequired
+  source: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onTreeChange: PropTypes.func,
+  onTreeExpand: PropTypes.func,
+  selectable: PropTypes.bool
 };
